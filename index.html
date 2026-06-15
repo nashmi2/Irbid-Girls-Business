@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سيرفر مقاطعة لوز | Loz Roleplay</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- الثيم الزهري -->
+<style>
+
+canvas#stars {
+  filter: hue-rotate(320deg) saturate(4) brightness(0.5) !important;
+}
+
+
+
+/* إزالة الأزرق نهائياً */
+.nav-brand,
+.navbar a,
+h1, h2, h3 {
+  color: #ff69b4 !important;
+}
+
+.slider-btn {
+  background: rgba(255, 79, 163, 0.8) !important;
+  border: 1px solid #ff85c2 !important;
+}
+
+.slider-btn i {
+  color: white !important;
+}
+
+.loader {
+  border-top: 5px solid #ff4fa3 !important;
+}
+
+#splash h1 {
+  color: #ff85c2 !important;
+}
+
+.gfi-logo {
+  filter: drop-shadow(0 0 20px #ff4fa3) !important;
+}
+
+canvas#stars {
+  filter: hue-rotate(260deg) saturate(2) !important;
+}
+
+.feature-card:hover,
+.admin-card:hover {
+  border-color: #ff4fa3 !important;
+  box-shadow: 0 0 25px rgba(255, 79, 163, 0.35) !important;
+}
+
+a {
+  color: #ff85c2 !important;
+}
+
+:root {
+  --main-color: #ff4fa3;
+  --secondary-color: #ff85c2;
+  --bg-dark: #120811;
+  --bg-light: #2b0f25;
+}
+
+body {
+  background: linear-gradient(135deg, #120811, #2b0f25, #4d1c3d) !important;
+}
+
+.section-title,
+.glitch {
+  color: #ff69b4 !important;
+  text-shadow: 0 0 20px #ff4fa3 !important;
+}
+
+.feature-card i {
+  color: #ff4fa3 !important;
+}
+
+.glass {
+  background: rgba(255, 105, 180, 0.06) !important;
+  border: 1px solid rgba(255, 105, 180, 0.35) !important;
+  box-shadow: 0 0 20px rgba(255, 79, 163, 0.15);
+}
+
+.discord-btn,
+.discord-login-btn,
+.music-btn,
+.role {
+  background: linear-gradient(45deg, #ff4fa3, #ff85c2) !important;
+  color: white !important;
+}
+
+.navbar {
+  background: rgba(255, 105, 180, 0.12) !important;
+  border-bottom: 1px solid rgba(255, 105, 180, 0.25) !important;
+}
+
+.subtitle,
+.desc,
+.feature-card p {
+  color: #ffd6ea !important;
+}
+
+.admin-card img {
+  border: 3px solid #ff4fa3 !important;
+}
+
+footer {
+  background: rgba(255, 105, 180, 0.1) !important;
+  border-top: 1px solid rgba(255, 105, 180, 0.25) !important;
+}
+
+.nav-brand {
+  color: #ff69b4 !important;
+  text-shadow: 0 0 10px #ff4fa3 !important;
+}
+
+/* تباعد كروت الإدارة */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px !important;
+  padding: 20px;
+  justify-items: center;
+}
+
+.admin-card {
+  width: 350px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.admin-card img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+</style>
+</head>
+
+<body>
+
+  <!-- شاشة التحميل -->
+  <div id="splash">
+    <div class="loader"></div>
+    <h1>جارٍ الدخول إلى بزنس بنات اربد ...</h1>
+  </div>
+
+  <!-- القائمة العلوية -->
+  <nav class="navbar" id="navbar" style="display: none;">
+    <div class="nav-brand" style="display: flex; align-items: center; gap: 10px;">
+      <img src="logo/lozsmol.png" alt="Logo" style="height: 35px; border-radius: 50%;" />
+      بزنس بنات اربد
+    </div>
+
+    <div id="discord-auth" class="discord-auth">
+      <a href="#" id="login-btn" class="discord-login-btn">
+        <i class="fab fa-discord"></i> تسجيل الدخول
+      </a>
+    </div>
+  </nav>
+
+  <!-- زر الصوت -->
+  <audio id="bg-music" autoplay loop>
+    <source src="audio/song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button id="toggle-music" class="music-btn" style="display: none;">
+    <i class="fas fa-volume-up"></i>
+  </button>
+
+  <canvas id="stars"></canvas>
+
+  <div id="main" style="display: none;">
+
+    <!-- القسم الرئيسي -->
+    <section class="landing" id="home">
+      <div class="container reveal">
+        <img src="logo/lozbig.png" alt="Loz Logo" class="gfi-logo pulse-glow" />
+
+        <h1 class="glitch">موقع بزنس بنات اربد رسمي </h1>
+
+        <p class="subtitle">
+          أفضل بزنز لبنات اربد، وإدارة متواجدة على مدار الساعة!
+        </p>
+
+        <a href="https://discord.gg/TNyFd6Wf" class="discord-btn">
+          <i class="fab fa-discord"></i> دخول الديسكورد
+        </a>
+      </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="features" id="features">
+      <h2 class="section-title reveal">مميزات بزنس بنات اربد</h2>
+
+      <div class="grid reveal">
+
+        <div class="feature-card glass">
+          <i class="fas fa-car-side"></i>
+          <h3>نقل الكحباب بل مجانا</h3>
+          <p>نقل الكحباب بل مجاناً في جميع أنحاء اربد</p>
+        </div>
+
+        <div class="feature-card glass">
+          <i class="fas fa-briefcase"></i>
+          <h3>كحباب متنوعه جميع الاشكال</h3>
+          <p>كحباب متنوعه جميع الاشكال والأنماط لتلبية احتياجات الجميع.</p>
+        </div>
+
+        <div class="feature-card glass">
+          <i class="fas fa-shield-alt"></i>
+          <h3>نظام حماية للكحباب</h3>
+          <p>نظام حماية وأمان كامل في أي وقت.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- معرض الصور -->
+    <section class="gallery" id="gallery">
+      <h2 class="section-title reveal">لقطات من بيت دعارة</h2>
+      <p class="desc reveal">استعرض أجمل السيناريوهات واللقطات من داخل بيت دعارة</p>
+
+      <div class="slider-container reveal">
+        <div class="slider" id="imageSlider">
+          <img src="logo/1.png" alt="Server 1" />
+          <img src="logo/2.png" alt="Server 2" />
+          <img src="logo/3.png" alt="Server 3" />
+        </div>
+
+        <button class="slider-btn prev" id="prevBtn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <button class="slider-btn next" id="nextBtn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- قسم الإدارة -->
+    <section class="admins" id="admins">
+      <h2 class="section-title reveal">مسؤوليين بزنس بنات اربد</h2>
+      <p class="desc reveal">نخبة من كحبات بيت دعارة</p>
+
+      <div class="grid reveal">
+
+        <div class="admin-card glass">
+          <img src="logo/lozbig.png" alt="Admin" />
+          <h3>محمد العبده</h3>
+          <span class="role">OWNER</span>
+        </div>
+
+        <div class="admin-card glass">
+          <img src="logo/lozbig.png" alt="Admin" />
+          <h3>ابو دلو</h3>
+          <span class="role">CO-OWNER</span>
+        </div>
+
+        <div class="admin-card glass">
+          <img src="logo/lozbig.png" alt="Admin" />
+          <h3>عبدالرحمن الموسى</h3>
+          <span class="role">توصل كحباب بزنس بنات اربد</span>
+        </div>
+
+        <div class="admin-card glass">
+          <img src="logo/lozbig.png" alt="Admin" />
+          <h3>عبدالله الموسى</h3>
+          <span class="role">ممول بزنس بنات اربد</span>
+        </div>
+
+        <div class="admin-card glass">
+          <img src="logo/lozbig.png" alt="Admin" />
+          <h3>ابراهيم النشمي</h3>
+          <span class="role">مدير الاعلام بزنس بنات اربد</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+      <p>جميع الحقوق محفوظة لبزنس بنات اربد © 2024</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
